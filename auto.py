@@ -34,10 +34,75 @@ while True:
     except:
         time.sleep(2)
 
+
+#exibir
+driver.find_element(By.XPATH, '//*[@id="type-filter-controller"]/span').click()
+time.sleep(.5)
+
+#recebido
+driver.find_element(By.XPATH, '//*[@id="typeFilterContainer"]/li[4]/a/span[1]').click()
+
+#aplicar
+driver.find_element(By.XPATH, '//*[@id="type-filter"]/ul/li[2]/div/button').click()
+time.sleep(3)
+
+#filtrar contas
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/button').click()
+
+#all
+#listar a ordem e largar num loop
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/li[1]/a/span[1]').click()
+time.sleep(0.3)
+
+#bradesco
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[2]/a/span').click()
+
+#itau
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[3]/a/span').click()
+
+#sap
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[4]/a/span').click()
+
+#sicredi
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[5]/a/span').click()
+
+#churn provavel
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[9]/a/span').click()
+
+#inad
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[10]/a/span').click()
+
+#franq inad
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[11]/a/span').click()
+
+#nova data
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[16]/a/span').click()
+
+#cartao iugu
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[35]/a/span').click()
+
+#renovaçao
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/div/li[42]/a/span').click()
+
+#aplicar
+driver.find_element(By.XPATH, '//*[@id="bank-filter"]/ul/li[3]/div/button').click()
+time.sleep(3)
+
+#ir para cima
+driver.find_element(By.CSS_SELECTOR, 'body').send_keys(Keys.CONTROL, Keys.HOME)
+time.sleep(1)
+
+#filtrar data
+driver.find_element(By.XPATH, '//*[@id="financeTopFilters"]/div[2]/button/span').click()
+
+#mostrar todos
+driver.find_element(By.XPATH, '//*[@id="financeTopFilters"]/div[2]/ul/li[5]/a').click()
+time.sleep(3)
+
 def search(each):
     input = driver.find_element(By.XPATH, '//*[@id="textSearch"]')
     input.click()
-    print(client_id[each])
+    input.send_keys(Keys.CONTROL, 'a', Keys.DELETE)
     try:
         input.send_keys(client_id[each+1])
     except:
